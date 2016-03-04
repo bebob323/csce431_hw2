@@ -45,6 +45,5 @@ class MoviesController < ApplicationController
   def ratings_all
     rating_vals = ['G','PG','PG-13','R']
     return ratings_all
-    
   end
 end
