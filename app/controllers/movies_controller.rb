@@ -11,9 +11,14 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @test = ".hilite"
     @movies = Movie.all
   end
+  
+  def title_header
+    @movies = Movie.all
+  end
+  
+  
 
   def new
     # default: render 'new' template
