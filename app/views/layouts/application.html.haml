@@ -13,5 +13,7 @@
         #notice.message= flash[:notice]
       - elsif flash[:warning]
         #warning.message= flash[:warning]
+      - elsif params[:not]
+        #notice.message= params[:not]
 
       = yield
