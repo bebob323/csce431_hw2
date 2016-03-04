@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th= link_to 'Movie Title', movies_path
+      %th= link_to 'Movie Title', movies_path({ "Jane Doe" => 10, "Jim Doe" => 6 })
       %th Rating
       %th= link_to 'Release Date', movies_path
       %th More Info
