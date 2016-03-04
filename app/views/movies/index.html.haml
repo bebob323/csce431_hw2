@@ -5,8 +5,6 @@
   %thead
     %tr
      - if params[:order_movies]
-        %th= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
-     - else
         %th.hilite= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
       %th Rating
       %th= link_to 'Release Date', movies_path({ :order_dates => "RD"})
