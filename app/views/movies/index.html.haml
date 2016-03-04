@@ -2,20 +2,14 @@
 %h1 All Movies
 
 %table#movies
-   - if params[:order_movies]
-    %thead
-      %tr
-        %th.hilite= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
-        %th Rating
-        %th= link_to 'Release Date', movies_path({ :order_dates => "RD"})
-        %th More Info
-   - else
-    %thead
-      %tr
-        %th= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
-        %th Rating
-        %th= link_to 'Release Date', movies_path({ :order_dates => "RD"})
-        %th More Info
+  - if flash[:notice]
+        #notice.message= flash[:notice]
+  %thead
+    %tr
+      %th.hilite= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
+      %th Rating
+      %th= link_to 'Release Date', movies_path({ :order_dates => "RD"})
+      %th More Info
   %tbody
     - @movies.each do |movie|
       %tr
