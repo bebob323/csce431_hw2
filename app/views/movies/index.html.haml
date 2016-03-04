@@ -4,9 +4,9 @@
 %table#movies
   %thead
     %tr
-      %th= link_to 'Movie Title', movies_path({ "Jane Doe" => "JD1", "Jim Doe" => "JD2" })
+      %th= link_to 'Movie Title', movies_path({ "notice" => "Movies"})
       %th Rating
-      %th= link_to 'Release Date', movies_path
+      %th= link_to 'Release Date', movies_path({ "notice" => "RD"})
       %th More Info
   %tbody
     - @movies.each do |movie|
