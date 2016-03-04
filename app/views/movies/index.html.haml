@@ -4,10 +4,13 @@
 %table#movies
   %thead
     %tr
-      %th= link_to 'Movie Title', movies_path({ :notice => "Movies"})
+      %th= link_to 'Movie Title', movies_path({ :not => "Movies"})
       %th Rating
-      %th= link_to 'Release Date', movies_path({ :notice => "RD"})
-      %th More Info
+      %th= link_to 'Release Date', movies_path({ :not => "RD"})
+       - if params[:not]
+        %th Less Info
+       - else
+        %th More Info
   %tbody
     - @movies.each do |movie|
       %tr
