@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    puts 'test'
     # default: render 'new' template
   end
 
