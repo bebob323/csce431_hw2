@@ -2,8 +2,6 @@
 %h1 All Movies
 
 %table#movies
-  - if flash[:notice]
-        #notice.message= flash[:notice]
   %thead
     %tr
       %th.hilite= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
