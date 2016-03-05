@@ -12,13 +12,13 @@ class MoviesController < ApplicationController
 
   def index
     if params[:title_header]
-      redirect_to titleHeader_movie_path
+      redirect_to titleheader_movie_path
     else
       @movies = Movie.all
     end
   end
   
-  def titleHeader
+  def titleheader
     @movies = Movie.all
   end
 
