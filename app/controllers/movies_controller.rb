@@ -11,11 +11,35 @@ class MoviesController < ApplicationController
   end
 
   def index
-   # if params[:title_header]
-    #  redirect_to titleheader_movies_path
-    #else
+    @all_ratings = Movie.ratings
+    if params[:sort] == "title"
+      session[:sort] = params[:sort]
+    elsif params[:sort] == "date"
+      session[:sort] = params[:sort]
+    end
+    if session[:sort] == "title"
+      @movies = Movie.order(:title)
+    elsif session[:sort] == "date"
+      @movies = Movie.order(:release_date)
+    else
       @movies = Movie.all
-    #end
+    end
+    if !session[:ratings]
+      session[:ratings] = Hash[@all_ratings.map {|x| [x, 1]}]
+    end
+    if params[:ratings]
+      session[:ratings] = params[:ratings]
+    end
+    if session[:ratings]
+      @boxes = session[:ratings].keys
+      i = @boxes.size
+      while i < 5  do
+        @boxes.insert(0, @boxes[0])
+        i +=1
+      end
+      @boxes.insert(0, "rating = ? OR rating = ? OR rating = ? OR rating = ? OR rating = ?")
+      @movies = @movies.where(@boxes)
+    end
   end
   
   def titleheader
@@ -49,9 +73,5 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-  
-  def ratings_all
-    rating_vals = ['G','PG','PG-13','R']
-    return ratings_all
-  end
+
 end
