@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th= link_to '#{@test}', title_header_movie_path
+      %th= link_to 'Movie Title', movies_path({ :order_movies => "Movies"})
       %th Rating
       %th= link_to 'Release Date', movies_path
       %th More Info
