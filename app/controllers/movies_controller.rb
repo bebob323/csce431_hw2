@@ -14,11 +14,9 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
   
-  def title_header
+  def titleHeader
     @movies = Movie.all
   end
-  
-  
 
   def new
     # default: render 'new' template
